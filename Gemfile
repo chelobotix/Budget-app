@@ -9,6 +9,9 @@ gem "rails", "~> 7.0.5"
 # Devise
 gem 'devise'
 
+# Sass
+gem 'sass-rails'
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
