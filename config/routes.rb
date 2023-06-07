@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :payments, except: [:index, :show]
+  resources :categories
+  devise_for :users
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  get 'payment_create_new/:category_id', to: 'payments#new_payment', as: 'payment_create_new'
+  post 'payment_create_new/:category_id', to: 'payments#create_payment', as: 'payment_create_new_post'
 end

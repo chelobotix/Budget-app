@@ -1,0 +1,24 @@
+<h1>New Transaction</h1>
+<div id="<%= @category.icon %>" class="img_icon"></div>
+<%= form_with model: @payment, url: payment_create_new_post_path, method: :post do |form| %>
+
+<div>
+    <%= form.label :category %>
+    <%= form.text_field :category, value: @category.name, disabled: true %>
+</div>
+
+<div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+</div>
+
+<div>
+    <%= form.label :amount %>
+    <%= form.number_field :amount, step: 0.1 %>
+</div>
+
+<div>
+    <%= form.submit %>
+</div>
+
+<% end %>

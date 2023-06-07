@@ -1,0 +1,11 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Categories</h1>
+<%= "Total Expenses: #{@current_user.total_expenses} $us" %>
+<div id="categories">
+  <% @categories.each do |category| %>
+    <%= render category %>
+  <% end %>
+</div>
+
+<%= button_to "Add a new category", new_category_path, method: :get %>
