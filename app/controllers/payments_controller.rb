@@ -3,7 +3,7 @@ class PaymentsController < ApplicationController
 
   # GET /payments or /payments.json
   def index
-    @payments = Payment.all
+    @payments = Payment.all.where(author_id: current_user)
   end
 
   # GET /payments/1 or /payments/1.json
@@ -54,6 +54,21 @@ class PaymentsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to payments_url, notice: "Payment was successfully destroyed." }
       format.json { head :no_content }
+    end
+  end
+
+  def new_payment
+    @payment = Payment.new
+    @category = Category.find(params[:category_id])
+  end
+
+  def create_payment
+    @payment = Payment.new(payment_params)
+    if @payment.save
+      PaymentCategory.create(category_id: params[:category_id], payment_id: @payment.id)
+      redirect_to category_path(id: params[:category_id]), notice: "Transaction was successfully added."
+    else
+      format.html { render :new, status: :unprocessable_entity }
     end
   end
 

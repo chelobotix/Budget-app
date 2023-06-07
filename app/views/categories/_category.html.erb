@@ -1,12 +1,27 @@
 <div id="<%= dom_id category %>">
   <p>
-    <strong>Name:</strong>
-    <%= category.name %>
+    <%= "#{category.name} " %>
+    <span>
+      <%= "(#{category.total_amount_category} $us)" %>
+    </span>
   </p>
 
-  <p>
-    <strong>Icon:</strong>
-    <%= category.icon %>
-  </p>
+  <div>
+    <%= link_to category do%>
+      <div id="<%= category.icon %>" class="img_icon">
+      </div>
+    <% end %>
+  </div>
+
+  <% if params[:action] == 'show' %>
+    <div>
+    <% @category.payments.order(created_at: :desc).each do |payment| %>
+      <p><%= payment.name %></p>
+      <p><%= "#{payment.amount} $us"  %></p>
+      <p><%= "Date: #{payment.created_at}"  %></p>
+    <% end %>
+    </div>
+  <% end %>
+
 
 </div>

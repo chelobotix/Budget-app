@@ -3,4 +3,8 @@ class Category < ApplicationRecord
 
   has_many :payment_categories, dependent: :destroy
   has_many :payments, through: :payment_categories
+
+  def total_amount_category
+    payments.sum(:amount)
+  end
 end

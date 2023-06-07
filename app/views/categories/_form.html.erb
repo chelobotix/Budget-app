@@ -18,13 +18,13 @@
 
   <div>
     <% 29.times do |i| %>
-      <%= form.radio_button :icon, "icon#{i}.jpg" %>
-      <%= form.label "icon_icon#{i}_jpg".to_sym do %>
+      <%= form.radio_button :icon, "img_icon#{i}" %>
+      <%= form.label "icon_img_icon#{i}".to_sym do %>
         <%= content_tag :div, "", id: "img_icon#{i}", class: "img_icon"  %>
       <% end %>
     <% end %>
   </div>
   <div>
-    <%= form.submit %>
+    <%= form.submit "Save" %>
   </div>
 <% end %>
