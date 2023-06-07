@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root "home#index"
   resources :payments, except: [:index, :show]
   resources :categories
   devise_for :users
