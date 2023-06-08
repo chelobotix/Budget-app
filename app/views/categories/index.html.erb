@@ -1,4 +1,4 @@
-<div class="d-flex flex-column align-items-center p-2">
+<div class="d-flex flex-column align-items-center bg_gray">
   <% flash.each do |type, msg| %>
         <div>
           <p class="notice"><%= notice %></p>
@@ -7,12 +7,12 @@
   <% end %>
 
   <h1>Categories</h1>
-  <%= "Total Expenses: #{@current_user.total_expenses} $us" %>
+  <p><%= "Total Expenses: #{@current_user.total_expenses} $us" %></p>
   <div id="categories" class="d-flex justify-content-center flex-wrap">
     <% @categories.each do |category| %>
       <%= render category %>
     <% end %>
   </div>
 
-  <%= button_to "Add a new category", new_category_path, method: :get, class: "btn-secondary m-3  " %>
+  <%= link_to "Add a New Category", new_category_path, :method=> :get, class: "btn-secondary mt-3 full-width btn-h link_btn" %>
 </div>
