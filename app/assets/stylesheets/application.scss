@@ -1,0 +1,47 @@
+@import "bootstrap";
+@import "icons.css";
+
+$primary_color: #3778c2;
+$secondary_color: #5fb523;
+$text_color: #434b54;
+@font-face {
+  font-family: "proxima";
+  src: url("fonts/proxima.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.navbar {
+  background-color: $primary_color;
+  padding: 5px;
+}
+
+.navbar-nav,
+.nav-link,
+.navbar-brand,
+.navbar-toggler {
+  color: #fff;
+  border-color: #fff;
+}
+
+.btn-primary {
+  background-color: #3778c2;
+}
+
+.btn-secondary {
+  background-color: #5fb523;
+}
+
+.blue_piggy {
+  padding-top: 50px;
+  padding-bottom: 30px;
+  width: 70%;
+}
+
+body {
+  font-family: "proxima";
+
+  main {
+    height: 100vh;
+  }
+}
