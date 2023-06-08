@@ -8,7 +8,7 @@
 
   <h1>Categories</h1>
   <p><%= "Total Expenses: #{@current_user.total_expenses} $us" %></p>
-  <div id="categories" class="d-flex justify-content-center flex-wrap">
+  <div id="categories" class="d-flex justify-content-center flex-wrap  full-width">
     <% @categories.each do |category| %>
       <%= render category %>
     <% end %>

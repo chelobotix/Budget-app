@@ -1,8 +1,17 @@
+<% flash.each do |type, msg| %>
+        <div>
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+        </div>
+  <% end %>
 <main class="d-flex flex-column align-items-center">
   <%= image_tag 'blue-piggy.png', alt: 'logo', class: 'blue_piggy' %>
 
   <% if current_user %>
     <h2 class><%= "Welcome #{current_user.name} 🙂" %></h2>
+    <script>
+      window.location.href = '/categories';
+    </script>
   <% else %>
     <a href="/users/sign_in">
       <button type="button" class="btn btn-primary m-2">Log in</button>
