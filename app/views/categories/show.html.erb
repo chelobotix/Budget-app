@@ -1,12 +1,13 @@
+<%= link_to "<", categories_path, class: "btn btn-primary m-2" %>
 <p style="color: green"><%= notice %></p>
-<%= link_to "<", categories_path %>
+<div class="d-flex flex-column align-items-center p-2">
 
-<%= render @category %>
+  <%= render @category %>
 
-<div>
-  <%= link_to "Edit this category", edit_category_path(@category) %> |
-  <%= link_to "Back to categories", categories_path %>
-  <%= button_to "Add a new transaction", payment_create_new_path(params[:id]), method: :get %>
+  <div class="d-flex justify-content-center">
+    <%= link_to "Edit this category", edit_category_path(@category), class: "btn-secondary link_btn m-1 rounded" %>
+    <%= button_to "Add a new transaction", payment_create_new_path(params[:id]), method: :get, class: "btn-secondary  border-0 m-1 rounded" %>
 
-  <%= button_to "Destroy this category", @category, method: :delete %>
+    <%= button_to "Destroy this category", @category, method: :delete, class: "btn-secondary  border-0 m-1 rounded" %>
+  </div>
 </div>

@@ -1,8 +1,10 @@
-<h1>Editing category</h1>
+<%= link_to "<", categories_path, class: "btn btn-primary m-2" %>
+<div class="d-flex flex-column align-items-center p-2">
+  <h1>Editing category</h1>
 
-<%= render "form", category: @category %>
+  <%= render "form", category: @category %>
 
-<br>
+  <br>
 
 <div>
   <%= link_to "Show this category", @category %> |
