@@ -9,6 +9,9 @@
 
   <% if current_user %>
     <h2 class><%= "Welcome #{current_user.name} 🙂" %></h2>
+    <script>
+      window.location.href = '/categories';
+    </script>
   <% else %>
     <a href="/users/sign_in">
       <button type="button" class="btn btn-primary m-2">Log in</button>
