@@ -1,3 +1,9 @@
+<% flash.each do |type, msg| %>
+        <div>
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+        </div>
+  <% end %>
 <main class="d-flex flex-column align-items-center">
   <%= image_tag 'blue-piggy.png', alt: 'logo', class: 'blue_piggy' %>
 

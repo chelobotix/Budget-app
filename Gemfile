@@ -52,6 +52,9 @@ gem "bootsnap", require: false
 gem "bootstrap", "~> 5.0"
 gem 'sassc-rails'
 
+# Cancan
+gem 'cancancan'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
