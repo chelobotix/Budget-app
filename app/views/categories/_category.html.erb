@@ -1,10 +1,17 @@
-<div id="<%= dom_id category %>">
-  <p>
-    <%= "#{category.name} " %>
-    <span>
+<% if params[:action] == 'index' %>
+  <div id="<%= dom_id category %>" class="d-flex flex-column align-items-center m-2 border border-secondary p-3">
+<% else %>
+  <div id="<%= dom_id category %>" class="d-flex flex-column align-items-center m-2 p-3">
+<% end %>
+  <div class="d-flex flex-column align-items-center">
+
+    <p>
+      <%= "#{category.name} " %>
+    </p>
+    <p class="amount">
       <%= "(#{category.total_amount_category} $us)" %>
-    </span>
-  </p>
+    </p>
+  </div>
 
   <div>
     <%= link_to category do%>
@@ -14,14 +21,23 @@
   </div>
 
   <% if params[:action] == 'show' %>
-    <div>
-    <% @category.payments.order(created_at: :desc).each do |payment| %>
-      <p><%= payment.name %></p>
-      <p><%= "#{payment.amount} $us"  %></p>
-      <p><%= "Date: #{payment.created_at}"  %></p>
-    <% end %>
-    </div>
+    <table class="table table-bordered mt-3 text-center">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @category.payments.order(created_at: :desc).each do |payment| %>
+          <tr>
+            <td><%= payment.name %></td>
+            <td><%= "#{payment.amount} $us"  %></td>
+            <td><%= payment.created_at  %></td>
+          </tr>
+        <% end %>
+      </tbody>
+      </table>
   <% end %>
-
-
 </div>

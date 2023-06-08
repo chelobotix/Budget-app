@@ -1,0 +1,79 @@
+@import "bootstrap";
+@import "icons.css";
+
+$primary_color: #3778c2;
+$secondary_color: #5fb523;
+$text_color: #434b54;
+@font-face {
+  font-family: "proxima";
+  src: url("fonts/proxima.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.navbar {
+  background-color: $primary_color;
+  padding: 5px;
+}
+
+.navbar-nav,
+.nav-link,
+.navbar-brand,
+.navbar-toggler {
+  color: #fff;
+  border-color: #fff;
+}
+
+.btn-primary {
+  background-color: #3778c2;
+}
+
+.btn-secondary {
+  background-color: #5fb523;
+  color: #fff;
+}
+
+.blue_piggy {
+  padding-top: 50px;
+  padding-bottom: 35px;
+  width: 75%;
+}
+
+.back {
+  margin-left: 50%;
+  margin-top: 5%;
+  border-radius: 50% !important;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none !important;
+  padding: 30px 30px !important;
+  -webkit-transition: background-color 1s, color 1s, -webkit-transform 0.5s;
+  transition: background-color 1s, transform 0.5s;
+}
+
+.amount {
+  color: #5fb523;
+}
+
+.border-secondary {
+  border-color: #5fb523;
+  border-radius: 5px;
+}
+
+.link_btn {
+  text-align: center;
+  text-decoration: none;
+}
+
+body {
+  font-family: "proxima";
+  color: #434b54;
+
+  main {
+    height: 100vh;
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+}

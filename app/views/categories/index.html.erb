@@ -1,11 +1,18 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Categories</h1>
-<%= "Total Expenses: #{@current_user.total_expenses} $us" %>
-<div id="categories">
-  <% @categories.each do |category| %>
-    <%= render category %>
+<div class="d-flex flex-column align-items-center p-2">
+  <% flash.each do |type, msg| %>
+        <div>
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+        </div>
   <% end %>
-</div>
 
-<%= button_to "Add a new category", new_category_path, method: :get %>
+  <h1>Categories</h1>
+  <%= "Total Expenses: #{@current_user.total_expenses} $us" %>
+  <div id="categories" class="d-flex justify-content-center flex-wrap">
+    <% @categories.each do |category| %>
+      <%= render category %>
+    <% end %>
+  </div>
+
+  <%= button_to "Add a new category", new_category_path, method: :get, class: "btn-secondary m-3  " %>
+</div>
