@@ -4,15 +4,19 @@ require 'cancan'
 
 RSpec.describe 'Category#Index', type: :system do
   let(:user) do
-    FactoryBot.create(:user)
+    user = User.create!(name: "Marco", email: Faker::Internet.email, password: "123456")
   end
 
-  let(:food) do
-    Food.create(name: 'Tomato', quantity: 1, measurement_unit: 'units', price: 5, user:)
+  let(:category) do
+    Category.create(name: 'Education', icon: "icons.jpg", author: user)
   end
 
-  let(:recipe) do
-    Recipe.create(name: "Pineapple Chicken", preparation_time: 1, cooking_time: 2, description: "dasdasdas", public: true, user: user)
+  let(:payment) do
+    Payment.create(name: "Barbie doll", amount: 56 , author: user)
+  end
+
+  let(:payment2) do
+    Payment.create(name: "Gi Joe", amount: 102.4 , author: user)
   end
 
   before do
@@ -21,92 +25,86 @@ RSpec.describe 'Category#Index', type: :system do
   end
 
   describe 'index page' do
-    it 'has the user created recipe' do
-      @user1 = User.create(name: 'Fede', email: 'fedefede@railsmail.com', password: '111111')
-
-      @user1.confirm
-      sign_in @user1
-
-      @recipe1 = Recipe.create(name: "Pineapple Chicken", preparation_time: 1, cooking_time: 2, description: "dasdasdas", public: true, user: @user1)
-      visit recipes_path
-      expect(page).to have_content('Pineapple Chicken')
+    it 'has the user categories' do
+      Category.create(name: 'Education', icon: "icons.jpg", author: user)
+      visit categories_path
+      expect(page).to have_content('Education')
     end
 
-    it 'has button to create a new recipe' do
-      visit recipes_path
-      expect(page).to have_link('New recipe')
+    it 'has button to create a new category' do
+      visit categories_path
+      expect(page).to have_link('Add a New Category')
     end
   end
 
-  describe 'Recipes#Show' do
-    it 'has the Add Ingredient button' do
-      visit recipe_path(recipe.id)
-      expect(page).to have_content('Add ingredient')
+  describe 'Categories#Show' do
+    it 'has the Add a new transaction button' do
+      visit category_path(category.id)
+      expect(page).to have_content('Add a new transaction')
     end
 
-    it 'has the Generate Shopping List button' do
-      visit recipe_path(recipe.id)
-      expect(page).to have_content('Generate shopping list')
+    it 'has the payment Barbie doll' do
+      PaymentCategory.create(payment: payment, category: category)
+      visit category_path(category.id)
+      expect(page).to have_content('Barbie doll')
+      expect(page).to have_content('Total Payment 56.0 $us')
+
     end
 
-    it 'has the Back to recipes button' do
-      visit recipe_path(recipe.id)
-      expect(page).to have_content('Back to recipes')
+    it 'has the total amount of the category' do
+      PaymentCategory.create(payment: payment, category: category)
+      PaymentCategory.create(payment: payment2, category: category)
+      visit category_path(category.id)
+      expect(page).to have_content('(158.4 $us)')
+    end
+
+    it 'has the Back to categories button' do
+      visit category_path(category.id)
+      expect(page).to have_content('<')
     end
   end
 
-  describe 'Recipes#New' do
+  describe 'Category#New' do
     before do
-      visit new_recipe_path
+      visit new_category_path
     end
 
     it 'has the input fields' do
       expect(page).to have_field('Name')
-      expect(page).to have_field('Preparation time (hours)')
-      expect(page).to have_field('Cooking time (hours)')
-      expect(page).to have_field('Description')
+      expect(page).to have_css('.img_icon')
     end
   end
 
-  describe 'Recipes#Create' do
+  describe 'Category#Create' do
     before do
-      visit new_recipe_path
+      visit new_category_path
     end
 
-    it 'creates a new recipe' do
-      fill_in 'Name', with: 'Chicken'
-      fill_in 'Preparation time (hours)', with: 1
-      fill_in 'Cooking time (hours)', with: 1
-      fill_in 'Description', with: 'Chicken'
-      click_button 'Create Recipe'
+    it 'creates a new category' do
+      fill_in 'Name', with: 'Health'
+      choose('category_icon_img_icon1')
+      click_button 'Save'
 
-      expect(page).to have_content('Recipe was successfully created.')
+      expect(page).to have_content('Category was successfully created.')
     end
   end
 
-  describe 'Recipes#AddIngredient' do
+  describe 'Payment create new' do
     before do
-      @user1 = User.create(name: 'Fede', email: 'fedefede@railsmail.com', password: '111111')
-
-      @user1.confirm
-      sign_in @user1
-
-      @recipe1 = Recipe.create(name: "Coke Pork", preparation_time: 1, cooking_time: 2, description: "dasdasdas", public: true, user: @user1)
-
-      @food1 = Food.create(name: 'Jam', measurement_unit: 'unit', price: 12, quantity: 10, user: @user1)
-      visit recipes_add_ingredient_path(id: @recipe1.id)
+      visit payment_create_new_path(category.id)
     end
 
     it 'has the input fields' do
-      expect(page).to have_selector('select')
-      expect(page).to have_selector('input')
+      expect(page).to have_field('Name')
+      expect(page).to have_field('Amount')
     end
 
-    it 'Add ingredient to recipe' do
-      fill_in 'recipe_food[quantity]', with: 2
-      click_button 'Add Ingredient'
+    it 'Add new payment to category' do
+      fill_in 'payment[name]', with: "Micro machine car"
+      fill_in 'payment[amount]', with: 23.5
+      click_button 'Save'
 
-      expect(page).to have_content('Ingredient was successfully added.')
+      expect(page).to have_content('Transaction was successfully added.')
     end
   end
 
