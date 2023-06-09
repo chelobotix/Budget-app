@@ -20,7 +20,6 @@ RSpec.describe 'Category#Index', type: :system do
   end
 
   before do
-    user.confirm
     sign_in user
   end
 

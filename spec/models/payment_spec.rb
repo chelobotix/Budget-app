@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe Payment, type: :model do
   before do
     @user = User.create!(name: 'Marco', email: Faker::Internet.email, password: '123456')
-    @user.confirm
   end
 
   it 'is valid with correct parameters' do
