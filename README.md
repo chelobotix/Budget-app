@@ -2,8 +2,8 @@
 
 <div align="center">
 
-  <img src="https://user-images.githubusercontent.com/65084923/236905326-efe684f3-a1d1-4acb-af4d-cf290f8b3982.png" alt="logo" width="100"  height="auto" />
-  <img src="https://user-images.githubusercontent.com/65084923/232604539-ea646b45-13a1-4214-9ffa-6720ec9634bf.png" alt="logo" width="100"  height="auto" />
+  <img src="https://user-images.githubusercontent.com/65084923/236905326-efe684f3-a1d1-4acb-af4d-cf290f8b3982.png" alt="logo" width="150"  height="auto" />
+  <img src="https://github.com/chelobotix/Budget-app/assets/65084923/b16f8185-9b9c-4986-be23-e0a76a098d53" alt="logo" width="150"  height="auto" />
   <br/>
   <img src="https://user-images.githubusercontent.com/65084923/220200035-01fa5e08-af6a-495b-b597-55157a2b7d95.gif" alt="logo" />
   <br/>
@@ -44,6 +44,9 @@
 ### Online Version <a name="online-version"></a>
 
 https://blue-piggy.onrender.com/
+
+Presentation video:
+
 
 <details>
   <summary>Client</summary>
@@ -150,6 +153,7 @@ This project is [MIT](<a href="./LICENSE">License</a>) licensed.
 
 <a href="./LICENSE">License</a>
 
-Original design idea by Gregoire Vella on Behance.
+Credit to the design author:
+Original design idea by Gregoire Vella on Behance. https://www.behance.net/gregoirevella
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
