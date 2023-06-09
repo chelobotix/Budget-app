@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   before_action :update_allowed_parameters, if: :devise_controller?
 
-  rescue_from CanCan::AccessDenied do |exception|
+  rescue_from CanCan::AccessDenied do |_exception|
     redirect_to root_path, alert: "That's doesn't belong to you 🤦‍♂️"
   end
 

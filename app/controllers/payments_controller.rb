@@ -72,12 +72,12 @@ class PaymentsController < ApplicationController
 
   private
 
-    # Use callbacks to share common setup or constraints between actions.
+  # Use callbacks to share common setup or constraints between actions.
   def set_payment
     @payment = Payment.find(params[:id])
   end
 
-    # Only allow a list of trusted parameters through.
+  # Only allow a list of trusted parameters through.
   def payment_params
     params.require(:payment).permit(:name, :amount).merge(author_id: current_user.id)
   end

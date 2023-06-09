@@ -4,7 +4,7 @@ require 'cancan'
 
 RSpec.describe 'Category#Index', type: :system do
   let(:user) do
-    user = User.create!(name: 'Marco', email: Faker::Internet.email, password: '123456')
+    User.create!(name: 'Marco', email: Faker::Internet.email, password: '123456')
   end
 
   let(:category) do
@@ -12,11 +12,11 @@ RSpec.describe 'Category#Index', type: :system do
   end
 
   let(:payment) do
-    Payment.create(name: 'Barbie doll', amount: 56 , author: user)
+    Payment.create(name: 'Barbie doll', amount: 56, author: user)
   end
 
   let(:payment2) do
-    Payment.create(name: 'Gi Joe', amount: 102.4 , author: user)
+    Payment.create(name: 'Gi Joe', amount: 102.4, author: user)
   end
 
   before do
@@ -48,7 +48,6 @@ RSpec.describe 'Category#Index', type: :system do
       visit category_path(category.id)
       expect(page).to have_content('Barbie doll')
       expect(page).to have_content('Total Payment 56.0 $us')
-
     end
 
     it 'has the total amount of the category' do
@@ -107,5 +106,4 @@ RSpec.describe 'Category#Index', type: :system do
       expect(page).to have_content('Transaction was successfully added.')
     end
   end
-
 end

@@ -5,7 +5,6 @@ RSpec.describe '/payments', type: :request do
     @user = User.create!(name: 'Marco', email: Faker::Internet.email, password: '123456')
     @user.confirm
     sign_in @user
-
   end
 
   let(:valid_attributes) do
