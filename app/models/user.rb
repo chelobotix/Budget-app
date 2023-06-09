@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many :payments, foreign_key: :author_id, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable
+         :recoverable, :rememberable, :validatable
 
   def total_expenses
     payments.sum(:amount)
