@@ -44,7 +44,7 @@ RSpec.describe 'Category#Index', type: :system do
     end
 
     it 'has the payment Barbie doll' do
-      PaymentCategory.create(payment: payment, category: category)
+      PaymentCategory.create(payment:, category:)
       visit category_path(category.id)
       expect(page).to have_content('Barbie doll')
       expect(page).to have_content('Total Payment 56.0 $us')
@@ -52,8 +52,8 @@ RSpec.describe 'Category#Index', type: :system do
     end
 
     it 'has the total amount of the category' do
-      PaymentCategory.create(payment: payment, category: category)
-      PaymentCategory.create(payment: payment2, category: category)
+      PaymentCategory.create(payment:, category:)
+      PaymentCategory.create(payment: payment2, category:)
       visit category_path(category.id)
       expect(page).to have_content('(158.4 $us)')
     end

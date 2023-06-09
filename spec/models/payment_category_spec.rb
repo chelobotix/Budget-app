@@ -18,4 +18,3 @@ RSpec.describe PaymentCategory, type: :model do
     expect(payment_categories).to_not be_valid
   end
 end
-

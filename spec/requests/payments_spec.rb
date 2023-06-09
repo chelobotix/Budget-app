@@ -8,21 +8,21 @@ RSpec.describe '/payments', type: :request do
 
   end
 
-  let(:valid_attributes) {
+  let(:valid_attributes) do
     {
       name: 'toys',
       amount: nil,
       author: @user
     }
-  }
+  end
 
-  let(:invalid_attributes) {
+  let(:invalid_attributes) do
     {
       name: nil,
       amount: nil,
       author: @user
     }
-  }
+  end
 
   describe 'GET /new' do
     it 'renders a successful response' do
@@ -42,9 +42,9 @@ RSpec.describe '/payments', type: :request do
   describe 'POST /create' do
     context 'with valid parameters' do
       it 'creates a new Payment' do
-        expect {
+        expect do
           post payments_url, params: { payment: valid_attributes }
-        }.to change(Payment, :count).by(1)
+        end.to change(Payment, :count).by(1)
       end
 
       it 'redirects to the created payment' do
@@ -57,9 +57,9 @@ RSpec.describe '/payments', type: :request do
   describe 'DELETE /destroy' do
     it 'destroys the requested payment' do
       payment = Payment.create! valid_attributes
-      expect {
+      expect do
         delete payment_url(payment)
-      }.to change(Payment, :count).by(-1)
+      end.to change(Payment, :count).by(-1)
     end
 
     it 'redirects to the payments list' do

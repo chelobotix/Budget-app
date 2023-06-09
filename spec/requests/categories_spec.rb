@@ -7,21 +7,21 @@ RSpec.describe '/categories', type: :request do
     sign_in @user
   end
 
-  let(:valid_attributes) {
+  let(:valid_attributes) do
     {
       name: 'Home',
       icon: 'icon1.jpg',
       author: @user
     }
-  }
+  end
 
-  let(:invalid_attributes) {
+  let(:invalid_attributes) do
     {
       name: 'Love',
       icon: true,
       author: @user
     }
-  }
+  end
 
   describe 'GET /index' do
     it 'renders a successful response' do
@@ -57,9 +57,9 @@ RSpec.describe '/categories', type: :request do
   describe 'POST /create' do
     context 'with valid parameters' do
       it 'creates a new Category' do
-        expect {
+        expect do
           post categories_url, params: { category: valid_attributes }
-        }.to change(Category, :count).by(1)
+        end.to change(Category, :count).by(1)
       end
 
       it 'redirects to the created category' do
@@ -70,9 +70,9 @@ RSpec.describe '/categories', type: :request do
 
     context 'with invalid parameters' do
       it 'does not create a new Category' do
-        expect {
+        expect do
           post categories_url, params: { category: invalid_attributes }
-        }.to change(Category, :count).by(1)
+        end.to change(Category, :count).by(1)
       end
     end
   end
@@ -80,9 +80,9 @@ RSpec.describe '/categories', type: :request do
   describe 'DELETE /destroy' do
     it 'destroys the requested category' do
       category = Category.create! valid_attributes
-      expect {
+      expect do
         delete category_url(category)
-      }.to change(Category, :count).by(-1)
+      end.to change(Category, :count).by(-1)
     end
 
     it 'redirects to the categories list' do
