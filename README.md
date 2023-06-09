@@ -47,7 +47,6 @@ https://blue-piggy.onrender.com/
 
 Presentation video:
 
-
 <details>
   <summary>Client</summary>
   <ul>
@@ -115,7 +114,8 @@ To fix all Linter error automatically
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **More Features**
+- [ ] **Desktop version**
+- [ ] **Delete trasnsaction feature**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
