@@ -2,18 +2,18 @@ require 'rails_helper'
 
 RSpec.describe Category, type: :model do
   before do
-    @user = User.create!(name: "Marco", email: Faker::Internet.email, password: "123456")
+    @user = User.create!(name: 'Marco', email: Faker::Internet.email, password: '123456')
     @user.confirm
 
   end
 
   it 'is valid with correct parameters' do
-    category = Category.create!(name: 'Home', icon: "icon1.jpg", author: @user)
+    category = Category.create!(name: 'Home', icon: 'icon1.jpg', author: @user)
     expect(category).to be_valid
   end
 
   it 'is invalid without an author' do
-    category = Category.new(name: 'Home', icon: "icon1.jpg")
+    category = Category.new(name: 'Home', icon: 'icon1.jpg')
     expect(category).to_not be_valid
   end
 

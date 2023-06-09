@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root "home#index"
-  get "home/index", to: "home#index"
+  root 'home#index'
+  get 'home/index', to: 'home#index'
   resources :payments, except: [:index, :show]
   resources :categories
   devise_for :users

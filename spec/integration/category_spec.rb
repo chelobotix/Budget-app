@@ -4,19 +4,19 @@ require 'cancan'
 
 RSpec.describe 'Category#Index', type: :system do
   let(:user) do
-    user = User.create!(name: "Marco", email: Faker::Internet.email, password: "123456")
+    user = User.create!(name: 'Marco', email: Faker::Internet.email, password: '123456')
   end
 
   let(:category) do
-    Category.create(name: 'Education', icon: "icons.jpg", author: user)
+    Category.create(name: 'Education', icon: 'icons.jpg', author: user)
   end
 
   let(:payment) do
-    Payment.create(name: "Barbie doll", amount: 56 , author: user)
+    Payment.create(name: 'Barbie doll', amount: 56 , author: user)
   end
 
   let(:payment2) do
-    Payment.create(name: "Gi Joe", amount: 102.4 , author: user)
+    Payment.create(name: 'Gi Joe', amount: 102.4 , author: user)
   end
 
   before do
@@ -26,7 +26,7 @@ RSpec.describe 'Category#Index', type: :system do
 
   describe 'index page' do
     it 'has the user categories' do
-      Category.create(name: 'Education', icon: "icons.jpg", author: user)
+      Category.create(name: 'Education', icon: 'icons.jpg', author: user)
       visit categories_path
       expect(page).to have_content('Education')
     end
@@ -100,7 +100,7 @@ RSpec.describe 'Category#Index', type: :system do
     end
 
     it 'Add new payment to category' do
-      fill_in 'payment[name]', with: "Micro machine car"
+      fill_in 'payment[name]', with: 'Micro machine car'
       fill_in 'payment[amount]', with: 23.5
       click_button 'Save'
 

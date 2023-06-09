@@ -4,6 +4,7 @@
 $primary_color: #3778c2;
 $secondary_color: #5fb523;
 $text_color: #434b54;
+
 @font-face {
   font-family: "proxima";
   src: url("fonts/proxima.ttf") format("truetype");
@@ -99,10 +100,12 @@ $text_color: #434b54;
 .img_icon {
   width: 100px;
   height: 100px;
+  /* stylelint-disable */
   background-image: asset-url("icons.jpg");
+  /* stylelint-enable */
   border-radius: 50%;
-  -webkit-box-shadow: 0px 0px 6px 0px #3778c2;
-  box-shadow: 0px 0px 6px 0px #3778c2;
+  -webkit-box-shadow: 0 0 6px 0 #3778c2;
+  box-shadow: 0 0 6px 0 #3778c2;
 }
 
 #img_icon0 {
@@ -222,7 +225,7 @@ $text_color: #434b54;
 }
 
 body {
-  font-family: "proxima";
+  font-family: "proxima", sans-serif;
   color: #434b54;
 
   main {

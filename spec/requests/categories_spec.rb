@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe "/categories", type: :request do
+RSpec.describe '/categories', type: :request do
   before do
-    @user = User.create!(name: "Marco", email: Faker::Internet.email, password: "123456")
+    @user = User.create!(name: 'Marco', email: Faker::Internet.email, password: '123456')
     @user.confirm
     sign_in @user
   end
@@ -10,7 +10,7 @@ RSpec.describe "/categories", type: :request do
   let(:valid_attributes) {
     {
       name: 'Home',
-      icon: "icon1.jpg",
+      icon: 'icon1.jpg',
       author: @user
     }
   }
@@ -23,53 +23,53 @@ RSpec.describe "/categories", type: :request do
     }
   }
 
-  describe "GET /index" do
-    it "renders a successful response" do
+  describe 'GET /index' do
+    it 'renders a successful response' do
       Category.create! valid_attributes
       get categories_url
       expect(response).to be_successful
     end
   end
 
-  describe "GET /show" do
-    it "renders a successful response" do
+  describe 'GET /show' do
+    it 'renders a successful response' do
       category = Category.create! valid_attributes
       get category_url(category)
       expect(response).to be_successful
     end
   end
 
-  describe "GET /new" do
-    it "renders a successful response" do
+  describe 'GET /new' do
+    it 'renders a successful response' do
       get new_category_url
       expect(response).to be_successful
     end
   end
 
-  describe "GET /edit" do
-    it "renders a successful response" do
+  describe 'GET /edit' do
+    it 'renders a successful response' do
       category = Category.create! valid_attributes
       get edit_category_url(category)
       expect(response).to be_successful
     end
   end
 
-  describe "POST /create" do
-    context "with valid parameters" do
-      it "creates a new Category" do
+  describe 'POST /create' do
+    context 'with valid parameters' do
+      it 'creates a new Category' do
         expect {
           post categories_url, params: { category: valid_attributes }
         }.to change(Category, :count).by(1)
       end
 
-      it "redirects to the created category" do
+      it 'redirects to the created category' do
         post categories_url, params: { category: valid_attributes }
         expect(response).to redirect_to(category_url(Category.last))
       end
     end
 
-    context "with invalid parameters" do
-      it "does not create a new Category" do
+    context 'with invalid parameters' do
+      it 'does not create a new Category' do
         expect {
           post categories_url, params: { category: invalid_attributes }
         }.to change(Category, :count).by(1)
@@ -77,15 +77,15 @@ RSpec.describe "/categories", type: :request do
     end
   end
 
-  describe "DELETE /destroy" do
-    it "destroys the requested category" do
+  describe 'DELETE /destroy' do
+    it 'destroys the requested category' do
       category = Category.create! valid_attributes
       expect {
         delete category_url(category)
       }.to change(Category, :count).by(-1)
     end
 
-    it "redirects to the categories list" do
+    it 'redirects to the categories list' do
       category = Category.create! valid_attributes
       delete category_url(category)
       expect(response).to redirect_to(categories_url)
