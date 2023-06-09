@@ -135,6 +135,9 @@ If you like this project please let me know
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
+Credit to the design author:
+Original design idea by Gregoire Vella on Behance. https://www.behance.net/gregoirevella
+
 My mother. Let's play until the end together ❤️ with 🧠
 <br/>
 
@@ -153,8 +156,5 @@ My mother. Let's play until the end together ❤️ with 🧠
 This project is [MIT](<a href="./LICENSE">License</a>) licensed.
 
 <a href="./LICENSE">License</a>
-
-Credit to the design author:
-Original design idea by Gregoire Vella on Behance. https://www.behance.net/gregoirevella
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
