@@ -116,7 +116,7 @@ To fix all Linter error automatically
 ## 🔭 Future Features <a name="future-features"></a>
 
 - [ ] **Desktop version**
-- [ ] **Delete trasnsaction feature**
+- [ ] **Delete transaction feature**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
